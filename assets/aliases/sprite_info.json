@@ -1,0 +1,30 @@
+{
+    "walk":{
+        "frame_rate": 100,
+        "h": 256,
+        "w": 128,
+        "animations":[
+            {
+                "name": "walk_forward",
+                "start_frame": 0,
+                "end_frame": 8
+            },
+            {
+                "name": "walk_backward",
+                "start_frame": 8,
+                "end_frame": 16  
+            },
+            {
+                "name": "walk_right",
+                "start_frame": 16,
+                "end_frame": 24  
+            },
+            {
+                "name": "walk_backwards",
+                "start_frame": 24,
+                "end_frame": 32 
+            }
+        ]
+    }
+    
+}

@@ -1,0 +1,19 @@
+# --- Booleans ----------------------------------------
+
+# These are the important facts about booleans & their operations
+#     ((True  m) n)  -->*  m
+#     ((False m) n)  -->*  n
+
+#     (Not True)  -->* False
+#     (Not False) -->* True
+
+#     ((And True)  True)  -->* True      ((Or True)  True)  -->* True
+#     ((And True)  False) -->* False     ((Or True)  False) -->* True
+#     ((And False) True)  -->* False     ((Or False) True)  -->* True
+#     ((And False) False) -->* False     ((Or False) False) -->* False
+
+True  = (\t.(\f.t));
+False = (\t.(\f.f));
+Not   = (\b.((b False) True));
+And   = (\b.(\c.((b c) False)));
+Or    = (\b.(\c.((b True) c)));
