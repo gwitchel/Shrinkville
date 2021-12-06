@@ -8,7 +8,8 @@ function preload_variables(){
 
     basic_grass_img = loadImage('../assets/background/tiles/tiles.png')
 
-
+    basic_path_img = loadImage('../assets/background/tiles/tiles.png');
+    basic_path_img = basic_path_img.get(0,48*7,48,48)
     char_wid = 32
     char_height = 32
 }
