@@ -29,7 +29,7 @@ function setup() {
   first_sprite_pants.set_walk_animation(walk_clothes_bottom)
 
   // initialize the background as a new pathset 
-  base_scene = new PathSet(0,0,int(windowWidth/48),int(windowHeight/48))
+  base_scene = new PathSet(0,0,int(windowWidth/48)-16,int(windowHeight/48))
 
   // initialize buttons 
   create_path_button = new Clickable(); 
@@ -61,6 +61,7 @@ function draw() {
 }
 
 function keyPressed() {
+  
   if (current_mode === "start_path"  && keyCode == ENTER){
       base_scene.unfinished_path.is_started = true
       base_scene.unfinished_path.trail.push ({
@@ -95,8 +96,6 @@ function keyPressed() {
         "y":previous_block["y"]+1,
       }) 
     }
-    if(keyCode == ENTER){
-      base_scene.finish_path();
-    }
+    
   }
 }
