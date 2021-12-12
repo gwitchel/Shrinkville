@@ -1,15 +1,24 @@
 // monsters (aliases) are metaphorical for the lambda function. 
 
 class Alias {
-  constructor(x,y,w,h,sprite) {
-    this.x;
-    this.y;
-    this.animations; // list of animation images
-    this.w;
-    this.h;
+  constructor(x,y,id=0) {
+    this.x = x;
+    this.y = y;
     this.index = 0;
-    this.sprite;
+    this.sprite = new AliasSprite();
+    this.sprite_shirt = new AliasSprite();
+    this.sprite_pants = new AliasSprite();
+    // set sprites animations
+    this.sprite.set_walk_animation(char1_walk_base)
+    this.sprite_shirt.set_walk_animation(walk_clothes_top,0)
+    this.sprite_pants.set_walk_animation(walk_clothes_bottom)
   } 
+
+  show(){
+      animation(this.sprite["animations"]["walk_forward"], this.x, this.y);
+      animation(this.sprite_shirt["animations"]["walk_forward"], this.x, this.y);
+      animation(this.sprite_pants["animations"]["walk_forward"], this.x, this.y);
+  }
 }
 
 class AliasSprite{
@@ -57,36 +66,3 @@ class AliasSprite{
   }
 }
 
-
-
-  /* monsters should act like lambda functions, they take in an input, do something to it, 
-  then return an output.
-
-  Monster either either berries or other monsters. 
-  
-  If a monster only eats berries, they are of type basic, 
-    -> basic monsters will eat berries and give you berries in return
-        -> of the basic monsters theres two subtypes 
-        the identity monster. Eats nothing, just gives you your berry: 
-          Const IdentityMon = y => y; 
-        the xBerryMon. No matter what you give them, always gives you an xberry 
-          const xBerryMon = y => x 
-    -> Complex monsters collect other monsters and keep them as pets. They 
-        are nicer and will take in multiple berries and try to use them to feed 
-        all of their pets. (and then eat the fattest one.) 
-
-        The true monster takes in two berries, 
-        -> Const TrueMon = x => IdentityMon
-        -> this might be described as TrueMon has a petIdentityMon,
-        if you give them one berry, they will pass it to their pet, 
-        the pet will eat it, then the TrueMon will ask for one 
-        for themselves. If you give it to them, they'll just give it back to you
-
-    -> if an input variable is being used as a function, then it's type has to
-    be specified via monster species. 
-    i.e 
-
-
-  If a monster has more than 1 pet, it takes it's buisness into the house
-
-  */

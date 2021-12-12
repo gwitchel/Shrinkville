@@ -12,3 +12,8 @@ function parse_sprite_walk(row,img){
     }
     return sequence
 }
+
+function placeChar(x,y){
+    /* places a character at a given X and y position*/ 
+    chars.append(new Alias(x,y))
+}
